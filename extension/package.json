@@ -1,6 +1,6 @@
 {
   "name": "hikoo-native-feature-explorer-extension",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
     "test:orca:features": "node tests/orca-features.mjs",
     "test:orca:ui": "node tests/orca-popup.mjs",
     "test:orca:ads": "node tests/orca-ads-launch.mjs",
+    "test:orca:claim": "node tests/orca-claim.mjs",
     "test:orca:restore": "node tests/orca-preview.mjs --restore"
   }
 }

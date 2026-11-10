@@ -9,8 +9,8 @@
     },
     {
       "file": "CHANGELOG.md",
-      "bytes": 848,
-      "sha256": "d44e6b6823d86c420e4eacccf8913fbb07c04a952c0cd88bd3083dfc338ce60e"
+      "bytes": 1401,
+      "sha256": "6a13a306a80b7418a974122d0bbafd711de287cf2a1738245df08e2805bdedb7"
     },
     {
       "file": "CONTRIBUTING.md",
@@ -31,6 +31,11 @@
       "file": "docs/ci-template.yml",
       "bytes": 405,
       "sha256": "ca5b12b66161085056ee00a365f6fff3a74dc2f4aeec1e7dac91d049bca92f01"
+    },
+    {
+      "file": "docs/CLAIM-PREVIEW.md",
+      "bytes": 5056,
+      "sha256": "9589edbdc05e2ebe969a0a249b6f9f17c2151d1de1d13ef903d10cb242e1d298"
     },
     {
       "file": "docs/DEPENDENCIES.md",
@@ -110,17 +115,17 @@
     {
       "file": "extension/manifest.json",
       "bytes": 659,
-      "sha256": "a9095e6e9cbf8ae5cb0f7b0eeb3f16afe80b66da3dfe4060fdaf7dc2bf9a623b"
+      "sha256": "6a305f683eec441d6206ef071e950b51c4fe64921d1e90a1d543f4674b01b826"
     },
     {
       "file": "extension/native-full-preview.js",
-      "bytes": 21681,
-      "sha256": "0aeabbdc7d736e6d65d505e2976d654683e0f9d247b380d2ea263842a1ae1504"
+      "bytes": 26603,
+      "sha256": "cc0e7a70d9c0340069927427f90c38a4497560017d34c023881b48d1c4e65d47"
     },
     {
       "file": "extension/package.json",
-      "bytes": 663,
-      "sha256": "fa890a024f848c1b4cfa1c80945681365863f3e669ebbe6b909fe135e2dd1a84"
+      "bytes": 715,
+      "sha256": "c66c79eddeb2f5901c126fdd844cce1169009080807fc14f8b7bcbb334e3a8d5"
     },
     {
       "file": "extension/popup.css",
@@ -129,8 +134,8 @@
     },
     {
       "file": "extension/popup.html",
-      "bytes": 5585,
-      "sha256": "8fac22764ff9edda5f345153bb9391c79decea874cb506a565f07701c72681e3"
+      "bytes": 5594,
+      "sha256": "4f07cf8b6a7d1bad5b2916c59c2daa9e436ce78d722987c4e9031015946a57d4"
     },
     {
       "file": "extension/popup.mjs",
@@ -203,6 +208,11 @@
       "sha256": "ebe8032c04358062d07326587ebecfccaa81b8bcfae53c830a7d6a0baf07d6f3"
     },
     {
+      "file": "extension/tests/orca-claim.mjs",
+      "bytes": 5089,
+      "sha256": "98677f0548383576152bd5be126a3ea25c0fa05f698340a13257edaafd724dc5"
+    },
+    {
       "file": "extension/tests/orca-features.mjs",
       "bytes": 1450,
       "sha256": "b1152447cabfbbfebf48818e17d2ceb4eee2cb539747ca7004b2c7f06fb83676"
@@ -240,7 +250,7 @@
     {
       "file": "package.json",
       "bytes": 469,
-      "sha256": "21cae6e532f909eaa734064a29c8f19edb37998e815aafc4c3573eab1b0dc92a"
+      "sha256": "5c85a5b00ee2b5882d59a7f8926f389642b77441e55ed7d8832b1967b04dfa2b"
     },
     {
       "file": "preview/fixtures/insights.js",
@@ -259,13 +269,13 @@
     },
     {
       "file": "PROVENANCE.md",
-      "bytes": 2687,
-      "sha256": "5c1bcbaa08e604f43eed6a855d862a8c677fe3b82e53d50244376764feae26e1"
+      "bytes": 2885,
+      "sha256": "be8455b44cc423a44c7debf08bc61157058907a6da6a1454d31bdf1db884ae27"
     },
     {
       "file": "README.md",
-      "bytes": 6843,
-      "sha256": "c9d1dccc5779ba5adf6ae4dfc15571ead051f6c5eeb96ad6e99d8f08e4dd3e8c"
+      "bytes": 7275,
+      "sha256": "9853aa42bea76385f1ae0855190e54c02f03fc2a7711ad17e8466ce6380c7b19"
     },
     {
       "file": "SECURITY.md",

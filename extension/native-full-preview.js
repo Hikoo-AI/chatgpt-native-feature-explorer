@@ -18,35 +18,54 @@ void (async()=>{
     const originalBusinessRoute=manifest.routes['business-profiles.route'];
     const originalAuthRoute=manifest.routes['authenticated-layout.route'];
     const originalNetwork={fetch,XMLHttpRequest,beacon:navigator.sendBeacon};
-    const url=manifest.entry.imports.find(u=>/\/633146\.[a-f0-9]+\.js$/.test(u));
-    const r=(await import(new URL(url,location.origin).href)).__webpack_require__;
+    let r,url;
+    for(const asset of manifest.entry.imports){
+      const namespace=await import(new URL(asset,location.origin).href);
+      if(namespace.__webpack_require__){r=namespace.__webpack_require__;url=asset;break;}
+    }
+    if(!r)throw Error('Current native runtime unavailable');
     const key=Object.keys(document).find(k=>k.startsWith('__reactContainer$'));
     const root=document[key].stateNode;
     const walk=visit=>{const queue=[root.current];while(queue.length){const f=queue.pop();visit(f);if(f.child)queue.push(f.child);if(f.sibling)queue.push(f.sibling);}};
     let router;walk(f=>{if(f.tag===10&&f.memoizedProps?.value?.router)router=f.memoizedProps.value.router;});
     if(!router)throw Error('Original router required');
-    const loader=Object.entries(r.c).find(([id])=>r.m[id]?.toString().includes('BusinessProfilesRoute')&&r.m[id]?.toString().includes('LazyBusinessProfilesPage.prefetch'));
-    const load=Object.values(loader[1].exports).find(v=>typeof v==='function'&&v.toString().includes('BusinessProfilesRoute')&&!v.toString().includes('prefetch'));
-    const Route=await load();
-    await Object.values(r.c).find(m=>m.exports?.BusinessProfilesRoute===Route).exports.LazyBusinessProfilesPage.prefetch();
-    const source=r.m.eUoS.toString();const prefix=source.slice(0,source.indexOf('e.BusinessProfileManagerView'));
-    const part=prefix.slice(prefix.lastIndexOf('Promise.all(['));
-    await Promise.all([...part.matchAll(/\.e\((\d+)\)/g)].map(m=>r.e(+m[1])));
-    // Original lazy Agent builder entry; no copied implementation.
-    await Promise.all([857739,118186,313356].map(chunk=>r.e(chunk)));
-    const Manager=r('lDTh').BusinessProfileManagerView;
-    const React=r.c.zd8w.exports,h=React.createElement,S=r.c.BolX.exports;
+    // Follow declarations in the current build, without shipping vendor code or
+    // retaining historic chunk filenames. Only native static imports are loaded.
+    const loadedChunks=new Set(),visited=new Set();
+    for(let depth=0;depth<4;depth++){
+      const declarations=Object.entries(r.m).filter(([id,factory])=>!visited.has(id)&&['BusinessProfilesPage','BusinessProfilesSearchView','BusinessProfileManagerView','BusinessProfileGetStarted'].some(name=>factory.toString().includes(name)));
+      for(const [id,factory]of declarations){
+        visited.add(id);
+        const chunks=[...factory.toString().matchAll(/\.e\((\d+)\)/g)].map(match=>Number(match[1]));
+        for(const chunk of chunks)loadedChunks.add(chunk);
+        await Promise.all(chunks.map(chunk=>r.e(chunk)));
+      }
+    }
+    function nativeExport(name){
+      const entry=Object.entries(r.m).find(([,factory])=>factory.toString().includes(name+':()=>'));
+      if(!entry)throw Error('Native component unavailable: '+name);
+      const component=r(entry[0])[name];
+      if(typeof component!=='function')throw Error('Native export changed: '+name);
+      return {id:entry[0],component};
+    }
+    const managerBinding=nativeExport('BusinessProfileManagerView');
+    const searchBinding=nativeExport('BusinessProfilesSearchView');
+    const supportBinding=nativeExport('ProtectedProfileClaimSupport');
+    const Manager=managerBinding.component,Search=searchBinding.component,ClaimSupport=supportBinding.component;
+    state.nativeBindings={manager:managerBinding.id,search:searchBinding.id,claimSupport:supportBinding.id};
+    const React=r('zd8w'),h=React.createElement,S=r('BolX');
     const nativePortal=Object.values(r.c).find(module=>typeof module.exports?.createPortal==='function')?.exports.createPortal;
-    const App=r.c.OWtl.exports.a,Thread=r.c.kl6F.exports.a,RouteScope=r.c.tSEg.exports.a;
-    function readBusinessGate(scope){const value=scope.get(r.c.OMIV.exports.d,'2778625748');if(typeof value!=='boolean')throw Error('Native gate binding is incompatible with this build');return value;}
+    const App=r('OWtl').a,Thread=r('kl6F').a,RouteScope=r('tSEg').a;
+    function readBusinessGate(scope){const value=scope.get(r('OMIV').d,'2778625748');if(typeof value!=='boolean')throw Error('Native gate binding is incompatible with this build');return value;}
     const Client=Object.values(r.c).flatMap(m=>Object.values(m.exports||{})).find(v=>typeof v==='function'&&typeof v.prototype?.getQueryCache==='function'&&typeof v.prototype?.setQueryData==='function');
     const client=new Client({defaultOptions:{queries:{retry:false,staleTime:Infinity,gcTime:Infinity,refetchOnWindowFocus:false,refetchOnReconnect:false}}});
-    const NativeQueryProvider=r.c.irkb.exports.b;
-    const contexts=Object.values(r.c.jqIZ.exports).filter(v=>{try{return v?.$$typeof===Symbol.for('react.context');}catch{return false;}});
+    const NativeQueryProvider=r('irkb').b;
+    const contexts=Object.values(r('jqIZ')).filter(v=>{try{return v?.$$typeof===Symbol.for('react.context');}catch{return false;}});
     const Location=contexts.find(v=>v.displayName==='Location'),RouteContext=contexts.find(v=>v.displayName==='Route');
     const profile=sample.twentyEight.manager.profile.business_profile_id;
     const sampleBase='/business-hub/'+profile;
     let sampleNavigate,showNotice,saveLocalDrafts,MemoryDialog;
+    const claimFixtures=[{canonicalId:"hikoo-fictional-cafe",businessProfileId:"bp_fixture_cafe",name:"Hikoo Demo Café (fictional)",kind:"business",scope:"public",businessType:"local",address:"12 Sample Street, Example City",website:"https://cafe.example"},{canonicalId:"hikoo-fictional-shop",businessProfileId:"bp_fixture_shop",name:"Hikoo Demo Store (fictional)",kind:"business",scope:"public",businessType:"ecommerce",website:"https://store.example"}];
     const memoryAccount='hikoo-fictional-memory-account';
     state.memoryReadOnly=true;
     async function loadMemory(){
@@ -86,28 +105,45 @@ void (async()=>{
     state.previewNavigation=[];
     state.previewLinkChecks=[];
     const originalClients=new Set();walk(f=>{const v=f.tag===10?f.memoizedProps?.value:null;if(v&&typeof v.getQueryCache==='function')originalClients.add(v);});
-    function IsolatedManager({originalApp,originalAuth,manager}){
+    function IsolatedManager({originalApp,originalAuth,manager,claimOpen,selectedClaim}){
       const isolatedApp=S.y(App),isolatedRoute=S.y(RouteScope);
-      const queryClient=r.c.irkb.exports.c();
-      const auth=r.c.EOo5.exports.a();
-      const dataRouter=React.useContext(r.c.jqIZ.exports.c);
+      const queryClient=r('irkb').c();
+      const auth=r('EOo5').a();
+      const dataRouter=React.useContext(r('jqIZ').c);
       state.isolationProof={differentScopeStore:isolatedApp.node.store!==originalApp.node.store,
         appScopeUsesFixtureClient:isolatedApp.queryClient===client,
         routeScopeUsesFixtureClient:isolatedRoute.queryClient===client,
         reactQueryUsesFixtureClient:queryClient===client,
         originalAuthIdentity:auth===originalAuth,originalDataRouter:dataRouter.router===router};
-      return h(React.Fragment,null,h(Manager,{manager}),state.memoryOpen&&MemoryDialog&&h(MemoryDialog,{
+      // Presentation-only search experiment inside the fresh scope store. The
+      // real Statsig client and the authenticated account are never mutated.
+      const claimPresentation=React.useRef(false);
+      if(claimOpen&&!claimPresentation.current){
+        if(isolatedApp.node.store===originalApp.node.store)throw Error('Claim preview requires an isolated scope');
+        const gates=r('OMIV'),searchGate=r('iC84').i;
+        state.originalSearchGate=originalApp.get(gates.d,searchGate);
+        isolatedApp.set(gates.f,null);
+        isolatedApp.set(gates.d,searchGate,true);
+        state.fixturePresentationGateOverrides=[searchGate];
+        claimPresentation.current=true;
+      }
+      const nativeView=claimOpen?(selectedClaim?h(ClaimSupport,{businessName:selectedClaim.name,businessProfileId:selectedClaim.businessProfileId,websiteUrl:selectedClaim.website,email:'',status:'locked',onClose:()=>state.selectClaim(null)}):h(Search,{businesses:[],useCanonicalSearch:false,search:{accountId:auth.accountId,adapter:{async search({query,signal}){signal.throwIfAborted();state.claimSearchCount=(state.claimSearchCount??0)+1;return claimFixtures.filter(item=>item.name.toLowerCase().includes(query.trim().toLowerCase()));}}},recheckPrivateAccess:async()=>{throw Error('Claim verification disabled in sample preview');}})):h(Manager,{manager});
+      state.claimSearchGate=isolatedApp.get(r('OMIV').d,r('iC84').i);
+      return h(React.Fragment,null,nativeView,state.memoryOpen&&MemoryDialog&&h(MemoryDialog,{
         accountId:memoryAccount,forceRefresh:false,onClose:state.closeMemory
       }));
     }
     function FixtureBranch(){
-      const auth=r.c.EOo5.exports.a();
-      const locale=r.c.Wf1j.exports.a().locale;
+      const auth=r('EOo5').a();
+      const locale=r('Wf1j').a().locale;
       const [sampleLocation,setSampleLocation]=React.useState({pathname:sampleBase+'/insights',search:''});
       const [notice,setNotice]=React.useState('');showNotice=setNotice;
+      const [claimOpen,setClaimOpen]=React.useState(false),[selectedClaim,setSelectedClaim]=React.useState(null);
+      state.claimOpen=claimOpen;state.selectClaim=setSelectedClaim;
+      state.showClaim=()=>{setSelectedClaim(null);setClaimOpen(true);setNotice('Fictional businesses only. Claim, verification and account operations are disabled.');};
       const [localManager,setLocalManager]=React.useState(sample.twentyEight.manager);
       const [memoryOpen,setMemoryOpen]=React.useState(false);
-      const displayToolbar=element=>memoryOpen&&nativePortal?nativePortal(element,document.body):element;
+      const displayToolbar=element=>(memoryOpen||selectedClaim)&&nativePortal?nativePortal(element,document.body):element;
       state.memoryOpen=memoryOpen;
       state.closeMemory=()=>setMemoryOpen(false);
       const openMemory=async()=>{
@@ -158,20 +194,25 @@ void (async()=>{
         return true;
       });
       const access={mode:'owner',accountId:auth.accountId,userId:auth.userId,profileId:profile};
-      const routeValue=r.c.tSEg.exports.b({pathname:samplePath,routeTemplate:'/business-hub/:profileId/*',search:sampleLocation.search});
+      const routeValue=r('tSEg').b({pathname:samplePath,routeTemplate:'/business-hub/:profileId/*',search:sampleLocation.search});
       // This is an explicitly simulated location in a fixture-only subtree. The
       // actual data router, protected route, real AuthProvider and URL stay intact.
       const locationValue={...nativeLocation,location:{...nativeLocation.location,pathname:samplePath,search:sampleLocation.search,hash:''}};
       const editorSection=samplePath.startsWith(sampleBase+'/edit/')?samplePath.slice((sampleBase+'/edit/').length):undefined;
       const routeContext={...route,matches:route.matches.map((m,i)=>i===route.matches.length-1?{...m,pathname:samplePath,pathnameBase:samplePath,params:{...m.params,profileId:profile,section:editorSection}}:m)};
-      const view=h(IsolatedManager,{originalApp:app,originalAuth:auth,manager:localManager});
+      const view=h(IsolatedManager,{originalApp:app,originalAuth:auth,manager:localManager,claimOpen,selectedClaim});
       const scoped=h(S.b,{scope:App,value:app.value},
         h(S.b,{scope:Thread,value:thread.value},
           h(S.b,{scope:RouteScope,value:routeValue},
-            h(S.b,{scope:r.c.C1dV.exports.a,value:{access}},
-              h(S.b,{scope:r.c.HwNs.exports.a,value:{accountId:auth.accountId,userId:auth.userId,profileId:profile,enabled:false}},view)))));
+            h(S.b,{scope:r('C1dV').a,value:{access}},
+              h(S.b,{scope:r('HwNs').a,value:{accountId:auth.accountId,userId:auth.userId,profileId:profile,enabled:false}},view)))));
       return h('section',{id:'native-full-insights-sample',style:{height:'100vh',maxHeight:'100vh',minHeight:0,display:'flex',flexDirection:'column',overflow:'hidden'},onClickCapture:event=>{
         const button=event.target.closest?.('button');
+        if(claimOpen&&!event.target.closest?.('[data-hikoo-toolbar]')){
+          const result=event.target.closest?.('[data-business-profile-result]');
+          if(result){event.preventDefault();event.stopPropagation();const fixture=claimFixtures.find(item=>item.canonicalId===result.getAttribute('data-business-profile-result'));if(fixture){setSelectedClaim(fixture);state.claimSelected=true;}return;}
+          if(event.target.closest?.('a[href]')||button?.matches('[data-business-profile-option]')){event.preventDefault();event.stopPropagation();setNotice('Claim creation, verification and external contact are disabled in this sample preview.');state.claimBlockedActions=(state.claimBlockedActions??0)+1;return;}
+        }
         if(state.memoryOpen&&!event.target.closest?.('[data-hikoo-toolbar]')){
           if(button&&/^(Close|Fermer)$/i.test(button.getAttribute('aria-label')||button.textContent.trim()))return;
           event.preventDefault();event.stopPropagation();state.memoryBlockedActions=(state.memoryBlockedActions??0)+1;return;
@@ -183,10 +224,11 @@ void (async()=>{
           state.previewLinkChecks.push({sameOrigin:url.origin===location.origin,sampleProfile:url.pathname.startsWith(sampleBase+'/'),section:url.pathname.split('/').at(-1),queryKeys:[...url.searchParams.keys()]});
           requestNavigation(url.href);
         }
-      },onKeyDownCapture:event=>{if(state.memoryOpen&&event.key==='Enter'){event.preventDefault();event.stopPropagation();}},onSubmitCapture:event=>{event.preventDefault();event.stopPropagation();if(!state.memoryOpen)saveLocalDrafts(event.target);}},
-        displayToolbar(h('div',{'data-hikoo-toolbar':true,style:{position:memoryOpen?'fixed':'relative',top:0,left:0,right:0,flexShrink:0,display:'flex',alignItems:'center',gap:12,justifyContent:'space-between',background:'#111a45',color:'#ffffff',padding:'10px 18px',font:'12px system-ui',borderBottom:'1px solid #26305f',zIndex:2147483647}},
+      },onKeyDownCapture:event=>{if(state.memoryOpen&&event.key==='Enter'){event.preventDefault();event.stopPropagation();}},onSubmitCapture:event=>{event.preventDefault();event.stopPropagation();if(!state.memoryOpen&&!claimOpen)saveLocalDrafts(event.target);}},
+        displayToolbar(h('div',{'data-hikoo-toolbar':true,style:{pointerEvents:'auto',position:(memoryOpen||selectedClaim)?'fixed':'relative',top:0,left:0,right:0,flexShrink:0,display:'flex',alignItems:'center',gap:12,justifyContent:'space-between',background:'#111a45',color:'#ffffff',padding:'10px 18px',font:'12px system-ui',borderBottom:'1px solid #26305f',zIndex:2147483647}},
           h('span',{style:{display:'flex',alignItems:'center',gap:9}},h('strong',{style:{fontSize:13,letterSpacing:'-.2px',paddingRight:12,borderRight:'1px solid #56618d'}},'Hikoo Labs'),'Experimental preview · Sample data'),
           notice&&h('span',{role:'status','data-preview-notice':true,style:{flex:1,fontSize:11,color:'#e1e6ff'}},notice),
+          h('button',{'data-claim-preview':true,onClick:claimOpen?()=>{setClaimOpen(false);setSelectedClaim(null);setNotice('');}:state.showClaim,style:{border:'1px solid #6874a2',borderRadius:7,background:'#26305f',color:'#fff',padding:'6px 11px',cursor:'pointer'}},claimOpen?'Back to Insights':'Claim your business'),
           sample.includePublicMemoryPreview&&h('button',{'data-memory-preview':true,onClick:memoryOpen?()=>setMemoryOpen(false):openMemory,style:{border:'1px solid #6874a2',borderRadius:7,background:'#26305f',color:'#fff',padding:'6px 11px',cursor:'pointer'}},memoryOpen?'Close Memory Summary':'Memory Summary'),
           h('button',{onClick:stop,'aria-label':'Close preview',style:{border:'1px solid #6874a2',borderRadius:7,background:'#26305f',color:'#ffffff',padding:'6px 11px',font:'11px system-ui',cursor:'pointer'}},'Close'))),
         ready&&h('div',{style:{flex:1,minHeight:0,overflow:'hidden'}},h(Location.Provider,{value:locationValue},h(RouteContext.Provider,{value:routeContext},h(S.a,{queryClient:client},h(NativeQueryProvider,{client},scoped))))));
@@ -194,7 +236,7 @@ void (async()=>{
     class Boundary extends React.Component{
       constructor(p){super(p);this.state={error:null};}
       static getDerivedStateFromError(e){return{error:e.message};}
-      componentDidCatch(e){state.phase='blocked';state.error=e.message;}
+      componentDidCatch(e){state.phase='blocked';state.error=e.message;state.errorStack=e.stack;}
       render(){return this.state.error?h('p',{'data-fixture-error':true},this.state.error):this.props.children;}
     }
     const id='native-full-insights-fixture';
@@ -202,11 +244,12 @@ void (async()=>{
     __reactRouterRouteModules[id]={default:FixtureBranch};
     router.patchRoutes('authenticated-layout.route',[{id,path:'gpts',element:h(Boundary,null,h(FixtureBranch))}]);
     state.verify=()=>{
-      let managers=0,sameRoot=true,metrics=0,discovery=0;
+      let managers=0,sameRoot=true,metrics=0,discovery=0,searches=0,claimSupports=0,claimControllers=0;
       const Metrics=r.c.K0bl?.exports.BusinessInsightsMetrics,Discovery=r.c.FCa5?.exports.DiscoveryTopics;
-      walk(f=>{if(f.type===Manager){managers++;let parent=f;while(parent.return)parent=parent.return;sameRoot&&=parent.stateNode===root;}
+      walk(f=>{if(f.type===r(supportBinding.id).CanonicalProfileClaim)claimControllers++;if(f.type===Search)searches++;if(f.type===ClaimSupport)claimSupports++;if(f.type===Search||f.type===ClaimSupport){let parent=f;while(parent.return)parent=parent.return;sameRoot&&=parent.stateNode===root;}if(f.type===Manager){managers++;let parent=f;while(parent.return)parent=parent.return;sameRoot&&=parent.stateNode===root;}
         if(Metrics&&f.type===Metrics)metrics++;if(Discovery&&f.type===Discovery)discovery++;});
-      return{managers,sameRoot:managers>0&&sameRoot,metrics,discovery,productionCacheUntouched:state.productionCacheUntouched,
+      return{managers,searches,claimSupports,claimControllers,sameRoot:(managers+searches+claimSupports)>0&&sameRoot,metrics,discovery,productionCacheUntouched:state.productionCacheUntouched,
+        originalSearchGateBefore:state.originalSearchGate,originalSearchGateNow:state.originalAppScope.get(r('OMIV').d,r('iC84').i),
         originalGateBefore:state.originalGate,originalGateNow:readBusinessGate(state.originalAppScope),
         realRouteUnchanged:manifest.routes['business-profiles.route']===originalBusinessRoute&&manifest.routes['authenticated-layout.route']===originalAuthRoute,
         networkFunctionsUnchanged:fetch===originalNetwork.fetch&&XMLHttpRequest===originalNetwork.XMLHttpRequest&&navigator.sendBeacon===originalNetwork.beacon,
@@ -214,10 +257,15 @@ void (async()=>{
     };
     state.provenance=async()=>{
       const checks=[];
-      for(const [chunk,modules]of [[850301,['lDTh','K0bl']],[332323,['FCa5']]]){
+      const modules=[managerBinding.id,'K0bl','FCa5',searchBinding.id,supportBinding.id];
+      const imports=await Promise.allSettled([...loadedChunks].map(async chunk=>{
         const asset=new URL(r.u(chunk),new URL(r.p,location.origin));
-        const namespace=await import(asset.href);
-        for(const module of modules)checks.push({module,asset:asset.pathname,sameFactory:namespace.__webpack_modules__[module]===r.m[module]});
+        return {asset,namespace:await import(asset.href)};
+      }));
+      const namespaces=imports.filter(item=>item.status==='fulfilled').map(item=>item.value);
+      for(const module of modules){
+        const found=namespaces.find(({namespace})=>namespace.__webpack_modules__?.[module]===r.m[module]);
+        checks.push({module,asset:found?.asset.pathname??null,sameFactory:!!found});
       }
       return{build:document.documentElement.dataset.build,runtime:url,checks};
     };
@@ -247,6 +295,6 @@ void (async()=>{
     router.navigate=fixtureNavigate;
     router.fetch=async()=>{showNotice?.('Server action disabled: only local sample data can be changed.');};
     state.navigationAdapter='Fixture-only temporary adapter on the original router; discarded on reload';
-    state.phase='mounted';
+    if(state.phase!=='blocked')state.phase='mounted';
   }catch(error){state.phase='blocked';state.error=error.message;}
 })();

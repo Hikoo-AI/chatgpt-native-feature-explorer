@@ -41,6 +41,10 @@ site's runtime. It does not save their implementations into the project.
 The protected route and its server admission are distinct from the isolated
 component preview. See [FULL-PREVIEW.md](docs/FULL-PREVIEW.md).
 
+The 0.4.0 search/support preview was also verified on build
+`feece64a1ee38fa896378ad5cb6578e60fdb2b53`. Its current module/asset checks are
+documented in [CLAIM-PREVIEW.md](docs/CLAIM-PREVIEW.md).
+
 ## Publication checks
 
 `npm run check` rejects known credential formats, packaged-runtime signatures,

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Hikoo · Native Feature Explorer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Hikoo Labs — Native frontend previews with isolated sample data. Business Hub and runtime checks for Ads Manager and Shopify. No proprietary bundles.",
   "permissions": [
     "activeTab",

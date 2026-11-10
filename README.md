@@ -21,6 +21,7 @@ establish that it is unreleased or available to your account.
 3. Click **Load unpacked** and select the extracted folder containing `manifest.json`.
 4. Open `https://chatgpt.com`, sign in normally, then click the Hikoo extension icon.
 5. Select **Business Hub** and click **Preview Insights**.
+6. In the preview toolbar, choose **Claim your business** and search for `Hikoo`.
 
 If using a source checkout instead, select its **`extension/`** folder.
 The preview uses a dedicated `/gpts` host route and a temporary fixture location
@@ -32,6 +33,7 @@ reload the normal page. Reload an already-installed extension after updates.
 | Surface | Current scope |
 |---|---|
 | Business Hub Insights | Original manager view, metrics, charts, 7D/28D filters and Discovery Topics with coherent fictional data. |
+| Claim your business | Native fictional-business search and protected-claim support screen. Verification and real claim submission remain disabled. |
 | Business information | Native editors; supported drafts can be saved in memory only. |
 | Products | Native page and activity tabs; uploading requires real verification and remains unavailable in the preview. |
 | Agent builder | Native unavailable state. The complete editor is not validated. |
@@ -52,7 +54,9 @@ Navigation methods are temporarily contained to the sample subtree.
 
 The protected Business Hub route/controller is not enabled. The real Statsig
 gate, identity, account permissions and authorization responses are not changed.
-The manager's access fields describe a fictional profile in the isolated branch.
+Only the fixture scope enables search presentation flag `3295749912`; the
+production Statsig client and its gate values stay unchanged. The manager's
+access fields describe a fictional profile in the isolated branch.
 They grant no server rights.
 
 The preview adds `connect-src 'none'; form-action 'none'` to block new connections
@@ -95,6 +99,7 @@ tab, and run:
 
 ```sh
 npm --prefix extension run test:orca:preview
+node extension/tests/orca-claim.mjs
 npm --prefix extension run test:orca:restore
 npm --prefix extension run test:orca:ui
 npm --prefix extension run test:orca:ads
@@ -104,11 +109,11 @@ Set `ORCA_PAGE_ID` if another browser tab is active. These tests use an Orca bri
 to exercise the adapter; they do not claim to install or exercise the actual MV3
 worker. Unit tests cover worker resumption with simulated Chrome APIs.
 
-The last full Business Hub Orca run was interrupted by a transport timeout after
-its native rendering and interactions were checked. A subsequent retry also
-timed out. Local checks cover code and fixtures; they do not certify a connected
-ChatGPT rendering or the Chrome installation flow. See
-[validation details](docs/VALIDATION-0.3.0.md).
+Version 0.4.0 was checked against the current ChatGPT build in Orca, including
+native search and protected-claim presentation. These checks do not certify the
+Chrome installation flow or the complete ownership-verification flow. See
+[claim preview validation](docs/CLAIM-PREVIEW.md); older validation limits remain
+recorded in [0.3.0 notes](docs/VALIDATION-0.3.0.md).
 
 An optional GitHub Actions template is provided in [docs/ci-template.yml](docs/ci-template.yml).
 It is inactive: the publication credential has no `workflow` scope. A maintainer
