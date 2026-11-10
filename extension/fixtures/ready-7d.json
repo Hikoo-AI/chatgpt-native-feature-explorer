@@ -1,0 +1,710 @@
+{
+  "sampleData": true,
+  "label": "Experimental preview · Sample data",
+  "schemaStatus": "Metrics validated on native build; full manager schema not yet validated",
+  "window": {
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-10"
+  },
+  "manager": {
+    "profile": {
+      "business_profile_id": "bp_fixture_demo",
+      "display_name": "Maison Exemple (fictional)",
+      "display_address": "12 Rue Exemple, 75000 Paris, FR",
+      "website_url": "https://maison-exemple.example",
+      "scope": "local",
+      "relationship": "owner",
+      "creation_status": "approved",
+      "can_manage": true,
+      "can_manage_members": true,
+      "access_revoked": false
+    },
+    "capabilities": {
+      "can_manage_ad_accounts": false,
+      "editable_sections": [
+        "about",
+        "contact",
+        "location",
+        "hours",
+        "photos"
+      ],
+      "requires_business_verification": false
+    },
+    "available_sections": [
+      "about",
+      "contact",
+      "location",
+      "hours",
+      "photos"
+    ],
+    "category_options": [
+      "Brunch restaurant",
+      "Breakfast restaurant",
+      "Cafe",
+      "Coffee shop",
+      "Bakery",
+      "French restaurant",
+      "Restaurant"
+    ],
+    "current": null,
+    "fields": [
+      {
+        "field_key": "name",
+        "editor_value": "Maison Exemple",
+        "preview_value": "Maison Exemple",
+        "discovered_value": null,
+        "revision": "rev_name",
+        "approved_revision": {
+          "id": "rev_name",
+          "value": "Maison Exemple",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_name",
+          "flow_id": null,
+          "operation": "set",
+          "value": "Maison Exemple"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": false,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "category",
+        "editor_value": "[\"Brunch restaurant\"]",
+        "preview_value": "[\"Brunch restaurant\"]",
+        "discovered_value": null,
+        "revision": "rev_category",
+        "approved_revision": {
+          "id": "rev_category",
+          "value": "[\"Brunch restaurant\"]",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_category",
+          "flow_id": null,
+          "operation": "set",
+          "value": "[\"Brunch restaurant\"]"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "description",
+        "editor_value": "Neighbourhood brunch and coffee spot (fictional business used for a local frontend preview).",
+        "preview_value": "Neighbourhood brunch and coffee spot (fictional business used for a local frontend preview).",
+        "discovered_value": null,
+        "revision": "rev_description",
+        "approved_revision": {
+          "id": "rev_description",
+          "value": "Neighbourhood brunch and coffee spot (fictional business used for a local frontend preview).",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_description",
+          "flow_id": null,
+          "operation": "set",
+          "value": "Neighbourhood brunch and coffee spot (fictional business used for a local frontend preview)."
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "phone",
+        "editor_value": "+33 1 23 45 67 89",
+        "preview_value": "+33 1 23 45 67 89",
+        "discovered_value": null,
+        "revision": "rev_phone",
+        "approved_revision": {
+          "id": "rev_phone",
+          "value": "+33 1 23 45 67 89",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_phone",
+          "flow_id": null,
+          "operation": "set",
+          "value": "+33 1 23 45 67 89"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "email",
+        "editor_value": "hello@maison-exemple.example",
+        "preview_value": "hello@maison-exemple.example",
+        "discovered_value": null,
+        "revision": "rev_email",
+        "approved_revision": {
+          "id": "rev_email",
+          "value": "hello@maison-exemple.example",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_email",
+          "flow_id": null,
+          "operation": "set",
+          "value": "hello@maison-exemple.example"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "website",
+        "editor_value": "https://maison-exemple.example",
+        "preview_value": "https://maison-exemple.example",
+        "discovered_value": null,
+        "revision": "rev_website",
+        "approved_revision": {
+          "id": "rev_website",
+          "value": "https://maison-exemple.example",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_website",
+          "flow_id": null,
+          "operation": "set",
+          "value": "https://maison-exemple.example"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "address",
+        "editor_value": "{\"line1\":\"12 Rue Exemple\",\"line2\":\"\",\"city\":\"Paris\",\"region\":\"Île-de-France\",\"postal_code\":\"75000\",\"country_code\":\"FR\"}",
+        "preview_value": "{\"line1\":\"12 Rue Exemple\",\"line2\":\"\",\"city\":\"Paris\",\"region\":\"Île-de-France\",\"postal_code\":\"75000\",\"country_code\":\"FR\"}",
+        "discovered_value": null,
+        "revision": "rev_address",
+        "approved_revision": {
+          "id": "rev_address",
+          "value": "{\"line1\":\"12 Rue Exemple\",\"line2\":\"\",\"city\":\"Paris\",\"region\":\"Île-de-France\",\"postal_code\":\"75000\",\"country_code\":\"FR\"}",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_address",
+          "flow_id": null,
+          "operation": "set",
+          "value": "{\"line1\":\"12 Rue Exemple\",\"line2\":\"\",\"city\":\"Paris\",\"region\":\"Île-de-France\",\"postal_code\":\"75000\",\"country_code\":\"FR\"}"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner",
+        "coordinates": {
+          "latitude": 48.8606,
+          "longitude": 2.3376,
+          "source": "owner_confirmed",
+          "address": {
+            "line1": "12 Rue Exemple",
+            "line2": "",
+            "city": "Paris",
+            "region": "Île-de-France",
+            "postal_code": "75000",
+            "country_code": "FR"
+          },
+          "expected_revision": "rev_address"
+        }
+      },
+      {
+        "field_key": "hours",
+        "editor_value": "{\"time_zone\":\"Europe/Paris\",\"days\":[{\"day\":\"monday\",\"closed\":true,\"intervals\":[]},{\"day\":\"tuesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"wednesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"thursday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"friday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"saturday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"sunday\",\"closed\":false,\"intervals\":[{\"opens\":\"09:00\",\"closes\":\"15:00\"}]}]}",
+        "preview_value": "{\"time_zone\":\"Europe/Paris\",\"days\":[{\"day\":\"monday\",\"closed\":true,\"intervals\":[]},{\"day\":\"tuesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"wednesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"thursday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"friday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"saturday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"sunday\",\"closed\":false,\"intervals\":[{\"opens\":\"09:00\",\"closes\":\"15:00\"}]}]}",
+        "discovered_value": null,
+        "revision": "rev_hours",
+        "approved_revision": {
+          "id": "rev_hours",
+          "value": "{\"time_zone\":\"Europe/Paris\",\"days\":[{\"day\":\"monday\",\"closed\":true,\"intervals\":[]},{\"day\":\"tuesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"wednesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"thursday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"friday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"saturday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"sunday\",\"closed\":false,\"intervals\":[{\"opens\":\"09:00\",\"closes\":\"15:00\"}]}]}",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_hours",
+          "flow_id": null,
+          "operation": "set",
+          "value": "{\"time_zone\":\"Europe/Paris\",\"days\":[{\"day\":\"monday\",\"closed\":true,\"intervals\":[]},{\"day\":\"tuesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"wednesday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"thursday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"friday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"saturday\",\"closed\":false,\"intervals\":[{\"opens\":\"08:30\",\"closes\":\"18:30\"}]},{\"day\":\"sunday\",\"closed\":false,\"intervals\":[{\"opens\":\"09:00\",\"closes\":\"15:00\"}]}]}"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "photos",
+        "editor_value": "[{\"id\":\"ph_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(20%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(20%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDining%20room%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Dining room\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_1\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(35%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(35%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBrunch%20plate%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Brunch plate\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_2\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(200%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(200%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPastry%20counter%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Pastry counter\",\"source\":\"owner\",\"scan_status\":\"passed\"}]",
+        "preview_value": "[{\"id\":\"ph_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(20%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(20%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDining%20room%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Dining room\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_1\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(35%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(35%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBrunch%20plate%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Brunch plate\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_2\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(200%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(200%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPastry%20counter%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Pastry counter\",\"source\":\"owner\",\"scan_status\":\"passed\"}]",
+        "discovered_value": null,
+        "revision": "rev_photos",
+        "approved_revision": {
+          "id": "rev_photos",
+          "value": "[{\"id\":\"ph_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(20%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(20%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDining%20room%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Dining room\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_1\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(35%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(35%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBrunch%20plate%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Brunch plate\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_2\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(200%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(200%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPastry%20counter%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Pastry counter\",\"source\":\"owner\",\"scan_status\":\"passed\"}]",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_photos",
+          "flow_id": null,
+          "operation": "set",
+          "value": "[{\"id\":\"ph_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(20%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(20%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDining%20room%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Dining room\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_1\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(35%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(35%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBrunch%20plate%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Brunch plate\",\"source\":\"owner\",\"scan_status\":\"passed\"},{\"id\":\"ph_2\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(200%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(200%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPastry%20counter%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Pastry counter\",\"source\":\"owner\",\"scan_status\":\"passed\"}]"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "logo",
+        "editor_value": "{\"id\":\"logo_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(280%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(280%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELogo%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Logo\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+        "preview_value": "{\"id\":\"logo_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(280%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(280%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELogo%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Logo\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+        "discovered_value": null,
+        "revision": "rev_logo",
+        "approved_revision": {
+          "id": "rev_logo",
+          "value": "{\"id\":\"logo_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(280%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(280%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELogo%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Logo\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_logo",
+          "flow_id": null,
+          "operation": "set",
+          "value": "{\"id\":\"logo_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(280%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(280%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELogo%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Logo\",\"source\":\"owner\",\"scan_status\":\"passed\"}"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "cover",
+        "editor_value": "{\"id\":\"cover_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(160%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(160%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECover%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Cover\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+        "preview_value": "{\"id\":\"cover_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(160%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(160%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECover%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Cover\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+        "discovered_value": null,
+        "revision": "rev_cover",
+        "approved_revision": {
+          "id": "rev_cover",
+          "value": "{\"id\":\"cover_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(160%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(160%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECover%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Cover\",\"source\":\"owner\",\"scan_status\":\"passed\"}",
+          "operation": "set"
+        },
+        "current_revision": {
+          "id": "rev_cover",
+          "flow_id": null,
+          "operation": "set",
+          "value": "{\"id\":\"cover_0\",\"url\":\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22420%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22hsl(160%2C45%25%2C82%25)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22system-ui%22%20font-size%3D%2228%22%20fill%3D%22hsl(160%2C35%25%2C30%25)%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECover%20(fictional)%3C%2Ftext%3E%3C%2Fsvg%3E\",\"alt\":\"Cover\",\"source\":\"owner\",\"scan_status\":\"passed\"}"
+        },
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "delivery_policy",
+        "editor_value": null,
+        "preview_value": null,
+        "discovered_value": null,
+        "revision": "rev_delivery_policy",
+        "approved_revision": null,
+        "current_revision": null,
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      },
+      {
+        "field_key": "returns_policy",
+        "editor_value": null,
+        "preview_value": null,
+        "discovered_value": null,
+        "revision": "rev_returns_policy",
+        "approved_revision": null,
+        "current_revision": null,
+        "pending_revision_id": null,
+        "verification_flow_id": null,
+        "latest_failure": null,
+        "can_edit": true,
+        "can_clear": true,
+        "verification_actions": [],
+        "status": "approved",
+        "source": "owner"
+      }
+    ]
+  },
+  "insights": {
+    "business_profile_id": "bp_fixture_demo",
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-10",
+    "analytics_scope": "local",
+    "metadata": {
+      "available_start_date": "2026-07-06",
+      "available_end_date_exclusive": "2026-11-10",
+      "missing_dates": [],
+      "previous_missing_dates": []
+    },
+    "timeseries": [
+      {
+        "date": "2026-11-03",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 75,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 15,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 8,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-04",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 76,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 15,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 8,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-05",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 76,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 15,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 9,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-06",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 76,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 16,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 9,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-07",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 55,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 11,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 6,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-08",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 56,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 11,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 6,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      },
+      {
+        "date": "2026-11-09",
+        "metrics": [
+          {
+            "metric": "entity_shown",
+            "event_count": 78,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "profile_open",
+            "event_count": 16,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "website_click",
+            "event_count": 9,
+            "status": "complete",
+            "unavailable_reason": null
+          },
+          {
+            "metric": "call_click",
+            "event_count": 2,
+            "status": "complete",
+            "unavailable_reason": null
+          }
+        ]
+      }
+    ],
+    "summary": [
+      {
+        "metric": "entity_shown",
+        "event_count": 492,
+        "previous_event_count": 473,
+        "percent_change": 4.0169133192389,
+        "status": "complete",
+        "previous_status": "complete",
+        "covered_days": 7,
+        "total_days": 7,
+        "previous_covered_days": 7,
+        "unavailable_reason": null
+      },
+      {
+        "metric": "profile_open",
+        "event_count": 99,
+        "previous_event_count": 97,
+        "percent_change": 2.0618556701030926,
+        "status": "complete",
+        "previous_status": "complete",
+        "covered_days": 7,
+        "total_days": 7,
+        "previous_covered_days": 7,
+        "unavailable_reason": null
+      },
+      {
+        "metric": "website_click",
+        "event_count": 55,
+        "previous_event_count": 52,
+        "percent_change": 5.769230769230769,
+        "status": "complete",
+        "previous_status": "complete",
+        "covered_days": 7,
+        "total_days": 7,
+        "previous_covered_days": 7,
+        "unavailable_reason": null
+      },
+      {
+        "metric": "call_click",
+        "event_count": 14,
+        "previous_event_count": 14,
+        "percent_change": 0,
+        "status": "complete",
+        "previous_status": "complete",
+        "covered_days": 7,
+        "total_days": 7,
+        "previous_covered_days": 7,
+        "unavailable_reason": null
+      }
+    ]
+  },
+  "discovery": {
+    "business_profile_id": "bp_fixture_demo",
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-10",
+    "status": "available",
+    "metadata": {
+      "effective_start_date": "2026-11-03",
+      "effective_end_date_exclusive": "2026-11-10",
+      "covered_dates": [
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09"
+      ],
+      "days": 7
+    },
+    "matched_mention_count": 492,
+    "previous_matched_mention_count": 473,
+    "other_mention_count": 113,
+    "previous_other_mention_count": 110,
+    "topics": [
+      {
+        "semantic_cluster_id": "tc_1",
+        "semantic_cluster_label": "Best brunch spots nearby",
+        "mention_count": 133,
+        "previous_mention_count": 121
+      },
+      {
+        "semantic_cluster_id": "tc_2",
+        "semantic_cluster_label": "Vegetarian and vegan options",
+        "mention_count": 89,
+        "previous_mention_count": 95
+      },
+      {
+        "semantic_cluster_id": "tc_3",
+        "semantic_cluster_label": "Weekend reservations",
+        "mention_count": 69,
+        "previous_mention_count": 59
+      },
+      {
+        "semantic_cluster_id": "tc_4",
+        "semantic_cluster_label": "Coffee and pastries",
+        "mention_count": 54,
+        "previous_mention_count": 62
+      },
+      {
+        "semantic_cluster_id": "tc_5",
+        "semantic_cluster_label": "Private events and groups",
+        "mention_count": 34,
+        "previous_mention_count": 26
+      }
+    ]
+  }
+}

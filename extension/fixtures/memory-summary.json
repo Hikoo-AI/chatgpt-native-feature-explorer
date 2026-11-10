@@ -1,0 +1,22 @@
+{
+  "sampleData": true,
+  "accountId": "hikoo-fictional-memory-account",
+  "summary": {
+    "sections": [
+      {"id": "sample-work", "title": "Fictional work", "description": "Alex is a fictional designer at Hikoo Labs. This sample character explores interfaces and prefers concise explanations."},
+      {"id": "sample-interests", "title": "Fictional interests", "description": "Alex enjoys typography, photography and weekend walks. These details are invented for this experimental preview."}
+    ],
+    "sectionChanges": [],
+    "debugConversationId": null,
+    "emptyStateMessage": "",
+    "generatedAtIso": "2026-11-10T09:00:00.000Z",
+    "sourceChecksum": "hikoo-sample-only"
+  },
+  "checksum": {
+    "cachedGeneratedAtIso": "2026-11-10T09:00:00.000Z",
+    "cachedSourceChecksum": "hikoo-sample-only",
+    "isStale": false,
+    "sourceChecksum": "hikoo-sample-only"
+  },
+  "selectionActions": []
+}

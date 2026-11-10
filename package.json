@@ -1,0 +1,14 @@
+{
+  "name": "hikoo-native-feature-explorer",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "test": "node --test extension/tests/core.test.mjs extension/tests/runtime-evidence.test.mjs extension/tests/ads-launch.test.mjs tools/audit.test.mjs",
+    "check": "node tools/audit.mjs",
+    "inventory": "node tools/audit.mjs --write-manifest",
+    "package": "node tools/package.mjs"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+**/evidence/
+**/history/
+**/.pw-profile*/
+.env
+.env.*
+*.har
+*.trace
+*.log
+.DS_Store

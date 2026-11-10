@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Hikoo · Native Feature Explorer",
+  "version": "0.3.0",
+  "description": "Hikoo Labs — Native frontend previews with isolated sample data. Business Hub and runtime checks for Ads Manager and Shopify. No proprietary bundles.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "minimum_chrome_version": "112",
+  "optional_host_permissions": ["https://ads.openai.com/*", "https://connect.ads.openai.com/*"],
+  "background": {"service_worker": "background.mjs", "type": "module"},
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hikoo Labs · Native Feature Explorer"
+  }
+}
